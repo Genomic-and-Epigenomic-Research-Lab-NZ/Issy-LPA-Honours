@@ -177,11 +177,6 @@ written by Aaron Stevens. The origin of each script, including any AI
 assistance, is recorded in Appendix B of the thesis.
 
 
-## Citation
-
-Yock, I. (2026). *Investigating LPA gene variants associated with premature
-coronary artery disease in Fijian populations* [BBiomedSc(Hons) thesis,
-University of Otago].
 
 
 ## Contact
