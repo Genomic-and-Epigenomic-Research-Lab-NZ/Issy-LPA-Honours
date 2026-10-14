@@ -35,7 +35,7 @@ repositories.
 The validation samples (HG03836, HG00657, HG01302, NA10851, HG00254) are
 publicly available from the 1000 Genomes ONT Vienna dataset (Schloissnig et
 al., 2025). Their KIV-2 allele sizes from optical mapping are from Behera et
-al. (2025).
+al. (2025) https://www.nature.com/articles/s41587-024-02382-1.
 
 
 ## Computing environment
