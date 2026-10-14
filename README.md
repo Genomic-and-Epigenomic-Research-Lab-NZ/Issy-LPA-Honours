@@ -34,8 +34,9 @@ repositories.
 
 The validation samples (HG03836, HG00657, HG01302, NA10851, HG00254) are
 publicly available from the 1000 Genomes ONT Vienna dataset (Schloissnig et
-al., 2025). Their KIV-2 allele sizes from optical mapping are from Behera et
-al. (2025).
+al., 2025) https://doi.org/10.1038/s41586-025-09290-7. Their KIV-2 allele 
+sizes from optical mapping are from Behera et al. (2025)
+https://doi.org/10.1038/s41587-024-02382-1.
 
 
 ## Computing environment
@@ -93,8 +94,7 @@ Full tool versions are listed in Tables 1-4 of the thesis.
 | `reference/` | BED files for LPA, KIV-2, flanking, promoter and array-depth control regions | Tables 5, 6 and 33 |
 | `01_basecalling_alignment/` | POD5 filtering, Dorado basecalling with modified base models, and alignment to T2T-CHM13v2.0 and GRCh38 | 2.5.1 |
 | `02_merge_validation/` | BAM integrity checks, shard count validation and per-sample merging | 2.5.2 |
-| `03_QC/` | Whole-genome QC before and after qs≥10 filtering | 2.5.3 |
-| `04_region_filtering/` | Subsetting BAMs to LPA and KIV-2 (padded and unpadded) on both references, and region QC | 2.5.4.1, 2.5.5.1 |
+| `03_QC/` | qs≥10 filtering, whole-genome QC, and subsetting to LPA and KIV-2 (padded and unpadded) with region QC on both references | 2.5.3, 2.5.4.1, 2.5.5.1 |
 | `05_alignment_metrics/` | Supplementary alignment, soft-clipping, MAPQ and mismatch rate by region | 2.5.4.2 |
 | `06_haplotyping/` | Longshot phasing, WhatsHap and LongPhase haplotagging, HP1/HP2 splitting and haplotype depth | 2.5.4.3 |
 | `07_VACmap/` | Read extraction, VACmap realignment, and repeat of alignment metrics and haplotyping | 2.5.4.4 |
@@ -123,6 +123,12 @@ infeasible, so default settings were used.
 directly with `-o output.sorted.bam` kept only a small fraction of input
 reads. Piping VACmap output through `samtools sort` recovered all reads and
 was used for all final alignments.
+
+**Pooled assemblies.** HP1, HP2 and unassigned reads were assembled together
+as a diagnostic. This mixes the two haplotypes and was not used.
+
+**Command-line VEP.** VEP was set up on the HPC, but annotation was done on
+the VEP web interface instead.
 
 **Collapsed-reference copy number (2.5.6.2, Appendix G).** Reads were
 realigned to a GRCh38 LPA region with the six KIV-2 copies collapsed into
@@ -175,6 +181,7 @@ BAMs to the LPA locus. Dr Klaus Lehnert provided the short-read VCFs used to
 check long-read genotypes. Some other scripts were adapted from scripts
 written by Aaron Stevens. The origin of each script, including any AI
 assistance, is recorded in Appendix B of the thesis.
+
 
 
 ## Contact
